@@ -16,12 +16,13 @@ public class DemoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+	CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 
 			System.out.println("봄 시동이 만든 빈 이름:");
 
 			String[] beanNames = ctx.getBeanDefinitionNames();
+			System.out.println("빈 수: " + beanNames.length);
 			Arrays.sort(beanNames);
 			for (String beanName : beanNames) {
 				System.out.println(beanName);
